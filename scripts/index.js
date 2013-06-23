@@ -1,11 +1,6 @@
 /**
  * @author tao
  */
-dojo.require("dijit.layout.BorderContainer");
-dojo.require("dijit.layout.ContentPane");
-dojo.require("esri.map");
-dojo.require("esri.layers.agsdynamic");
-
 require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "esri/map", "esri/layers/agsdynamic", "dojo/domReady!"], function(BorderContainer, ContentPane, map, agsdynamic) {
 	layout();
 	loadMap();
