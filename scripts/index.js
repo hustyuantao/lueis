@@ -1,10 +1,10 @@
 /**
  * @author tao
  */
-require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "esri/map", "esri/layers/agsdynamic", "widgets/Menu", "dojo/domReady!"], function(BorderContainer, ContentPane, map, agsdynamic, Menu) {
+require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "widgets/Map", "widgets/Menu", "dojo/domReady!"], function(BorderContainer, ContentPane, Map, Menu) {
 	layout();
 	var menu = new widgets.Menu("menu");
-	loadMap();
+	var map = new widgets.Map("map", "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer");
 });
 
 /**
@@ -23,17 +23,4 @@ function layout() {
 	contentContainer.addChild(bannerPane);
 	contentContainer.addChild(mapPane);
 	contentContainer.startup();
-}
-
-/**
- * 加载地图
- */
-function loadMap() {
-	var map = new esri.Map("map", {
-		zoom : 20,
-		sliderStyle : "small"
-	});
-	var mapServer = "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer";
-	var layer = new esri.layers.ArcGISDynamicMapServiceLayer(mapServer);
-	map.addLayer(layer);
 }
