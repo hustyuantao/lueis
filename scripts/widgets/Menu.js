@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "dijit/MenuBarItem", "dijit/PopupMenuItem", "dijit/PopupMenuBarItem"], function(declare, Menu, MenuBar, MenuItem, MenuBarItem, PopupMenuItem, PopupMenuBarItem) {
+define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "dijit/MenuBarItem", "dijit/PopupMenuItem", "dijit/PopupMenuBarItem"], function(declare) {
 
 	return declare("widgets.Menu", null, {
 		// 菜单DOM文档ID
@@ -112,9 +112,13 @@ define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "
 			this.userManageMenu.startup();
 			this.parkGuideMenu.startup();
 		},
+		// 监听时间
+		listen : function() {
+			
+		},
 		// 创建主菜单栏
 		createMainMenu : function() {
-			var menu = new dijit.MenuBar({}, this.id);
+			var menu = new dijit.MenuBar({}, this.id); 
 
 			var items = [{
 				id : "parkinfo",
@@ -376,5 +380,4 @@ define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "
 			return menu;
 		}
 	});
-	return
 });

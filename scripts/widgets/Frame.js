@@ -1,5 +1,5 @@
 require(["dojo/_base/declare", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "widgets/Map", "widgets/Menu"], function(declare) {
-
+	
 	return declare("widgets.Frame", null, {
 		// 框架DOM文档ID
 		contentId : null,
@@ -19,9 +19,14 @@ require(["dojo/_base/declare", "dijit/layout/BorderContainer", "dijit/layout/Con
 			this.mapId = map;
 			this.menuId = menu;
 			this.url = url;
-			this.layout();
-			this.menu = new widgets.Menu(this.menuId);
-			this.map = new widgets.Map(this.menuId, this.url);
+			console.log("content = "+content);
+			console.log("banner = "+banner);
+			console.log("map = "+map);
+			console.log("menu = "+menu);
+			console.log("url = "+url);
+			//this.layout();
+			//this.menu = new widgets.Menu(this.menuId);
+			//this.map = new widgets.Map(this.mapId, this.url);
 		},
 		// 页面布局
 		layout : function() {
@@ -39,7 +44,4 @@ require(["dojo/_base/declare", "dijit/layout/BorderContainer", "dijit/layout/Con
 			contentContainer.startup();
 		}
 	});
-	layout();
-	var menu = new widgets.Menu("menu");
-	var map = new widgets.Map("map", "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer");
 });
