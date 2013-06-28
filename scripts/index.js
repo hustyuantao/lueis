@@ -1,6 +1,32 @@
 /**
  * @author tao
  */
-require(["widgets/Frame", "dojo/domReady!"], function() {
-	var frame = new widgets.Frame("content", "banner", "map", "menu", "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer");
+var contentDivId = "content";
+var bannerDivId = "banner";
+var menuDivId = "menu";
+var mapDivId = "map";
+var url = "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer";
+var menu;
+var map;
+
+require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "widgets/Map", "widgets/Menu", "dojo/domReady!"], function() {
+	layout();
+	map = new widgets.Map(mapDivId, url);
+	menu = new widgets.Menu(menuDivId, map);
 });
+
+// 页面布局
+function layout() {
+	var contentContainer = new dijit.layout.BorderContainer({
+		design : "headline"
+	}, contentDivId);
+	var bannerPane = new dijit.layout.ContentPane({
+		region : "top"
+	}, bannerDivId);
+	var mapPane = new dijit.layout.ContentPane({
+		region : "center"
+	}, mapDivId);
+	contentContainer.addChild(bannerPane);
+	contentContainer.addChild(mapPane);
+	contentContainer.startup();
+}
