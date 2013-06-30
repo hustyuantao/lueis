@@ -7,12 +7,14 @@ var menuDivId = "menu";
 var mapDivId = "map";
 var url = "http://192.168.0.68:6080/arcgis/rest/services/KFQ2013/MapServer";
 var menu;
+var tool;
 var map;
 
-require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "widgets/Map", "widgets/Menu", "dojo/domReady!"], function() {
+require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "widgets/Map", "widgets/Menu", "widgets/Tool","dojo/domReady!"], function() {
 	layout();
 	map = new widgets.Map(mapDivId, url);
 	menu = new widgets.Menu(menuDivId, map);
+	tool = new widgets.Tool(map, "zoomin", "zoomout", "zoomfullext", "zoomprev", "zoomnext", "pan", "deactivate", "drawpoint", "drawmultipoint", "drawline", "drawpolyline", "drawpolygon", "drawextent");
 });
 
 // 页面布局

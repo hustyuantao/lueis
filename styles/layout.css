@@ -12,7 +12,7 @@ body, #content {
 }
 
 #banner {
-	height: 120px;
+	height: 140px;
 	overflow: hidden;
 	text-align: center;
 	background-color: white;
@@ -36,25 +36,110 @@ body, #content {
 #menu {
 	width: 700px;
 	height: 100%;
-	border : 0;
+	border: 0;
 	padding: 0;
 	margin-bottom: 0;
 }
 
-#menu ul {
+#tool {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+#tool ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-#menu ul li {
+#tool ul li {
 	float: left;
 	font-size: 14px;
 	padding-top: 0;
-	padding-right: 6px;
+	padding-right: 2px;
 	padding-bottom: 0;
-	padding-left: 6px;
+	padding-left: 2px;
 	margin: 0;
+}
+
+.zoomInIcon {
+	background: url("../images/nav_zoomin.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.zoomOutIcon {
+	background: url("../images/nav_zoomout.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.zoomFullExtentIcon {
+	background: url("../images/nav_fullextent.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.zoomPrevIcon {
+	background: url("../images/nav_previous.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.zoomNextIcon {
+	background: url("../images/nav_next.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.panIcon {
+	background: url("../images/nav_pan.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.deactivateIcon {
+	background: url("../images/nav_decline.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawPointIcon {
+	background: url("../images/draw_point.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawMultiPointIcon {
+	background: url("../images/draw_multipoint.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawLineIcon {
+	background: url("../images/draw_line.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawPolylineIcon {
+	background: url("../images/draw_polyline.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawPolygonIcon {
+	background: url("../images/draw_polygon.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.drawExtentIcon {
+	background: url("../images/draw_extent.png") no-repeat;
+	width: 16px;
+	height: 16px;
 }
 
 #map {

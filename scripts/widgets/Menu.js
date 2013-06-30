@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "dijit/MenuBarItem", "dijit/PopupMenuItem", "dijit/PopupMenuBarItem", "esri/tasks/QueryTask"], function(declare) {
+define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "dijit/MenuBarItem", "dijit/PopupMenuItem", "dijit/PopupMenuBarItem", "dijit/Dialog","esri/tasks/QueryTask"], function(declare) {
 
 	return declare("widgets.Menu", null, {
 		// 菜单DOM文档ID
@@ -28,7 +28,13 @@ define(["dojo/_base/declare", "dijit/Menu", "dijit/MenuBar", "dijit/MenuItem", "
 		parkGuideMenu : null,
 		// 图文介绍
 		showGraphicIntroduction : function() {
-			alert("图文介绍");
+			var dialog = new dijit.Dialog({
+				title : "The Dojo Toolkit",
+				content : "This is the Dialog content",
+				style : "width : 200px;display:none;"
+			});
+			dialog.show();
+			//alert("图文介绍");
 		},
 		// 视频介绍
 		showVideoIntroduction : function() {
