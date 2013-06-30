@@ -37,7 +37,7 @@ define(["dojo/_base/declare", "esri/map", "esri/layers/agsdynamic", "esri/layers
 		// 加载动态图层
 		addLayer : function() {
 			var layer = new esri.layers.ArcGISDynamicMapServiceLayer(this.url);
-			layer.setVisibleLayers([7]);
+			//layer.setVisibleLayers([7]);
 			this.map.addLayer(layer);
 		},
 		// 加载鹰眼
