@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function(declare, MapController, Dialog) {
+define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog", "dijit/form/CheckBox", "dgrid/Grid", "dgrid/editor"], function(declare, MapController, Dialog, CheckBox, Grid, editor) {
 
 	return declare("widgets.MenuController", null, {
 		/**
@@ -39,7 +39,7 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showTorchPark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "火炬高新园");
 		},
@@ -48,7 +48,7 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showXianganPark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "翔安园");
 		},
@@ -57,7 +57,7 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showTongjiPark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "同集园");
 		},
@@ -66,7 +66,7 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showPhotoelectricPark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "信息光电园");
 		},
@@ -75,7 +75,7 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showSoftwarePark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "软件园");
 		},
@@ -84,20 +84,76 @@ define(["dojo/_base/declare", "widgets/MapController", "dijit/Dialog"], function
 		 */
 		showBiologicalPark : function() {
 			var map = this.map.map;
-			var url = this.map.url + "/7";
+			var url = this.map.url + "/0";
 			var controller = this.controller;
 			controller.setExtentByAttribute(map, url, "北大生物园");
 		},
 		/**
+		 *图层管理对话框
+		 */
+		layerManageDialog : null,
+		/**
 		 * 图层管理
 		 */
 		layerManagement : function() {
-			var dialog = new Dialog({
-				title : "图层管理",
-				content : "图层管理",
-				style : "width:200px;"
-			});
+			var dialog;
+			if (this.layerManageDialog == null) {
+				var map = this.map.map;
+				for(var i in map.layerIds) {
+					var layer = map.getLayer(map.layerIds[i]);
+					
+				}
+
+				dialog = new Dialog({
+					id : "layerdialog",
+					title : "图层管理",
+					//content : content,
+					style : "width:400px;overflow: scroll;"
+				});
+				var data = [{
+					head : true,
+					first : "Bob",
+					second : "trouble",
+					third : "introuce"
+				}, {
+					head : true,
+					first : "Bob",
+					second : "trouble",
+					third : "introuce"
+				}, {
+					head : true,
+					first : "Bob",
+					second : "trouble",
+					third : "introuce"
+				}];
+				var grid = new Grid({
+					columns : {
+						head :editor({
+							label: " ",
+							editor : "checkbox"
+						}),
+						first : "name",
+						second : "school",
+						third : "age"
+					}
+				});
+				grid.renderArray(data);
+				dialog.addChild(grid);
+				/*
+				 var checkbox = new CheckBox({
+				 id : "checkcheck",
+				 label : "图层管理",
+				 checked : true
+				 });
+				 console.log(checkbox);
+				 checkbox.placeAt(dialog);*/
+				this.layerManageDialog = dialog;
+			} else {
+				dialog = this.layerManageDialog;
+			}
+			//console.log(dialog);
 			dialog.show();
+
 			//var map = this.map.map;
 			//console.log(map);
 			//alert("图层管理");
